@@ -26,7 +26,7 @@ class Word < ActiveRecord::Base
     where QUERY_NOT_LEARNED, user_id: user_id, search: "%#{search}%"}
 
   scope:search, ->(keyword, category_id) {
-    where("content LIKE ? OR category_id = ?", "%#{keyword}%", "#{category_id}")
+    where("content LIKE ? AND category_id = ?", "%#{keyword}%", "#{category_id}")
   }
   scope:search_category, ->(category_id = 0) {
     where("category_id is null OR category_id = ?", "#{category_id}")
