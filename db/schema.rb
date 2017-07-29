@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824023905) do
+ActiveRecord::Schema.define(version: 20170729030528) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_type"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160824023905) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "code"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -50,6 +51,17 @@ ActiveRecord::Schema.define(version: 20160824023905) do
   end
 
   add_index "lessons", ["user_id", "created_at"], name: "index_lessons_on_user_id_and_created_at"
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "des"
+    t.integer  "user_id"
+    t.integer  "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+  add_index "notes", ["word_id"], name: "index_notes_on_word_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -90,6 +102,8 @@ ActiveRecord::Schema.define(version: 20160824023905) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "des"
+    t.integer  "no"
   end
 
   add_index "words", ["category_id", "created_at"], name: "index_words_on_category_id_and_created_at"

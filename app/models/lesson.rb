@@ -12,7 +12,7 @@ class Lesson < ActiveRecord::Base
   scope :user_own, -> (user) {where user_id: user.id }
 
   def create_questions
-    words = self.category.words.shuffle().take Settings.lesson.number_words
+    words = self.category.words
     words.each do |word|
       self.results.build word_id: word.id
     end

@@ -2,8 +2,8 @@ class Word < ActiveRecord::Base
   belongs_to :category
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy
-
-  validate :number_answer_overflow
+  has_many :notes, dependent: :destroy
+  # validate :number_answer_overflow
 
   accepts_nested_attributes_for :answers, allow_destroy: true,
     reject_if: proc{|attributes| attributes["content"].blank?}
