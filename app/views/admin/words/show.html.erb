@@ -29,6 +29,7 @@
       </div>
     <% end %>
   </h4>
+  <h4><%= "Giai thich: #{@word.des}" %></h4>
   <span%>
     <%= link_to t("page.admin.words.update"),  edit_admin_word_path(@word),
       class: "btn btn-warning glyphicon glyphicon-edit" %>

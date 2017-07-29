@@ -1,23 +1,15 @@
-<div class="col-md-4 blog-main box text-center"
-  id="category_<%= category.id %>">
-  <div class="panel panel-info">
-    <h4 class="panel-title label-info title_category_admin"><%= category.name %></h4>
-    <p></p>
-    <p><%= category.description %></p>
-    <small class="label label-info">
-      <%= localize_time category.created_at %>
-    </small>
-    <br/>
-    <br/>
-    <div class="btn-group">
-      <%= link_to t("page.admin.categories.link_edit"),
-        edit_admin_category_path(category), class: "btn btn-success btn-xs" %>
-      <%= link_to t("page.admin.categories.link_delete"), [:admin, category],
-        method: :delete, data: {confirm: t("page.messages.notice")},
-        class: "btn btn-danger btn-xs" %>
-      <p></p>
-    </div>
-    <br>
-    <br>
-  </div>
-</div>
+<tr id="category_<%= category.id %>">
+  <td><%= category.code %></td>
+  <td><%= category.name %></td>
+  <td><%= category.description %></td>
+  <td><%= localize_time category.created_at %></td>
+  <td>
+    <%= link_to t("page.admin.categories.link_edit"),
+      edit_admin_category_path(category), class: "btn btn-success btn-xs" %>
+  </td>
+  <td>
+    <%= link_to t("page.admin.categories.link_delete"), [:admin, category],
+      method: :delete, data: {confirm: t("page.messages.notice")},
+      class: "btn btn-danger btn-xs" %>
+  </td>
+</tr>
