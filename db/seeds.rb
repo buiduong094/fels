@@ -15,7 +15,7 @@ end
 10.times do |category|
   name  = "Category #{category+1}"
   description = "Here is the description of the #{category+1} course"
-  Category.create!(name:  name, description: description)
+  Category.create!(name:  name, description: description, code: "code_#{category}")
 end
 
 5.times do |category|
